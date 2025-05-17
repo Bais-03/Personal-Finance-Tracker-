@@ -691,8 +691,32 @@
 +                }
 +            }
 +        });
+
+    //json 
+
+   
+ /*fetch("data.json")
+    .then(response => response.json())
+    .then(fin => {
+      const ctx = document.getElementById("myChart").getContext("2d");
+      new Chart(ctx, {
+        type: "bar",  // or "pie", "line", etc.
+        data: {
+          labels: fin.labels,
+          datasets: [{
+            label: "Amount",
+            data: fin.data,
+            backgroundColor: fin.type.map(t =>
+              t === "Income" ? "green" : "red"
+            )
+          }]
+        }
+      });
+    });
+  */
+
 +    </script>
-+        </script>
++        
 +
 +    <!-- Profile Modal -->
 +    <div id="profileModal" class="modal">
@@ -721,6 +745,7 @@
 +            <button id="editProfile" class="btn">Edit Profile</button>
 +        </div>
 +    </div>
-+
++ 
+
 +</body>
 +</html>
