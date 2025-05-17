@@ -500,6 +500,13 @@
 +                        <canvas id="expenseChart"></canvas>
 +                    </div>
 +                </div>
+
+                <div class="chart-container">
+             <h2>Overall Amounts</h2>
+            <div class="chart-wrapper">
+        <canvas id="myChart" width="400" height="300"></canvas>
+          </div>
+           </div>
 +
 +                <div class="transaction-form">
 +                    <h2>Add Transaction</h2>
@@ -691,32 +698,35 @@
 +                }
 +            }
 +        });
+      //json
 
-    //json 
-
-   
- /*fetch("data.json")
-    .then(response => response.json())
+     
+  fetch("data.json")
+    .then(r => r.json())
     .then(fin => {
       const ctx = document.getElementById("myChart").getContext("2d");
       new Chart(ctx, {
-        type: "bar",  // or "pie", "line", etc.
+        type: "bar",                 // change to "pie", "line", etc. if you like
         data: {
-          labels: fin.labels,
+          labels: fin.labels,        // e.g. ["Food", "Transport", "Salary"]
           datasets: [{
             label: "Amount",
-            data: fin.data,
+            data: fin.data,          // e.g. [500, 150, 5000]
             backgroundColor: fin.type.map(t =>
               t === "Income" ? "green" : "red"
             )
           }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false
         }
       });
-    });
-  */
+    })
+    .catch(err => console.error("myChart failed:", err));
 
 +    </script>
-+        
++       
 +
 +    <!-- Profile Modal -->
 +    <div id="profileModal" class="modal">
@@ -745,7 +755,6 @@
 +            <button id="editProfile" class="btn">Edit Profile</button>
 +        </div>
 +    </div>
-+ 
-
++
 +</body>
 +</html>
