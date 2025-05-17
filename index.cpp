@@ -1,5 +1,21 @@
 /* Write backend code here */
 #include<iostream>
+#include <fstream>          // for file writing
+#include "json.hpp"         // the library you just added
+
+using json = nlohmann::json;
+
+int main() {
+    /* ---- demo data to plot ---- */
+    json chart;
+    chart["labels"] = {"Food", "Transport", "Salary"};
+    chart["data"]   = {500, 150, 5000};
+    chart["type"]   = {"Expense", "Expense", "Income"};
+
+    /* ---- write file ---- */
+    std::ofstream("data.json") << chart.dump(4);   // pretty-print with indent=4
+    return 0;
+}
 using namespace std;
 
 class User {
